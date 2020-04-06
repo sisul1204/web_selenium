@@ -4,12 +4,17 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
+from pages.base_page import BasePage
 
-class HomePage:
 
-    login_url = 'http://120.78.128.25:8765'
+class HomePage(BasePage):
+
+    home_url = 'http://120.78.128.25:8765'
     bid_locator = (By.CSS_SELECTOR, '.btn-special')
     user_locator = (By.XPATH, "//a[@href='/Member/index.html']")
+
+    def get(self):
+        return self.driver.get(self.home_url)
 
 
 
